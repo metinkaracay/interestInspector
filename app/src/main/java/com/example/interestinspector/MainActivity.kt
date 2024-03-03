@@ -31,6 +31,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
+
+        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.summaryFragment -> {
+                    navController.navigate(R.id.secondFragment)
+                    true
+                }
+                R.id.panelFragment -> {
+                    navController.navigate(R.id.panelFragment)
+                    true
+                }
+                else -> false
+            }
+        }
+
     }
 
     fun navigateToDestination(navController: NavController, navigationData: NavigationData) {

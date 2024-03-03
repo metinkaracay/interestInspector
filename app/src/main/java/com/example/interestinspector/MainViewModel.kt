@@ -11,10 +11,10 @@ class MainViewModel: ViewModel() {
     val navigateToDestinationComponentSingleLiveEvent: LiveData<NavigationData> = _navigateToDestinationComponentSingleLiveEvent
 
     fun onFirstFragmentButtonClick() {
-        _navigateToDestinationComponentSingleLiveEvent.value = NavigationData(R.id.action_secondFragment_to_firstFragment)
+        _navigateToDestinationComponentSingleLiveEvent.value = NavigationData(R.id.firstFragment)
     }
 
     fun onSecondFragmentButtonClick() {
-        _navigateToDestinationComponentSingleLiveEvent.value = NavigationData(R.id.action_firstFragment_to_secondFragment)
+        _navigateToDestinationComponentSingleLiveEvent.value = NavigationData(R.id.secondFragment)
     }
 }
