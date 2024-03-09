@@ -8,6 +8,7 @@
             name="pageViewState"
             type="com.example.interestinspector.panel.PanelPageViewState" />
     </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,18 +17,32 @@
         android:layout_marginHorizontal="64dp"
         tools:context=".panel.PanelFragment">
 
+        <TextView
+            android:id="@+id/totalAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{pageViewState.resultVisibility()}"
+            android:text="@{pageViewState.totalAmountText()}"
+            android:textSize="24sp"
+            android:textColor="@color/blue"
+            android:gravity="center"
+            tools:text="Vade Sonu: 54120"/>
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
             <AutoCompleteTextView
                 android:id="@+id/time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Gün"
+                android:hint="@{pageViewState.timeHintText()}"
                 android:inputType="none"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="16dp"
+                android:dropDownHeight="300dp"
+                tools:hint="Gün"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -36,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="16dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Miktar"
+            android:hint="@{pageViewState.amountHintText()}"
             app:hintTextColor="@color/black"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
 
@@ -44,7 +59,10 @@
                 android:id="@+id/amount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{pageViewState.amount}"/>
+                android:inputType="numberDecimal"
+                android:maxLines="1"
+                android:text="@{pageViewState.amount}"
+                tools:hint="Tutar"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -52,9 +70,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Faiz Oranı"
+            android:hint="@{pageViewState.interestRateHintText()}"
             app:hintTextColor="@color/black"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            tools:hint="Faiz Oranı">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/interestRate"
@@ -63,5 +82,52 @@
                 android:maxLength="3"
                 android:inputType="number"/>
         </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/calculateButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{pageViewState.calculateButtonText()}"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:layout_marginBottom="16dp"
+            tools:text="Hesapla"/>
+
+        <TextView
+            android:id="@+id/grossIncome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:visibility="@{pageViewState.resultVisibility()}"
+            android:text="@{pageViewState.grossIncomeText()}"
+            android:textSize="20sp"
+            android:textColor="@color/darkGreen"
+            tools:text="Kazancınız: 15.548,58"/>
+
+        <TextView
+            android:id="@+id/deduction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:visibility="@{pageViewState.resultVisibility()}"
+            android:text="@{pageViewState.deductionText()}"
+            android:textSize="20sp"
+            android:textColor="@color/red"
+            tools:text="Vergi Kesintisi: 4.848"/>
+
+        <TextView
+            android:id="@+id/netIncome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:visibility="@{pageViewState.resultVisibility()}"
+            android:text="@{pageViewState.netIncomeText()}"
+            android:textSize="20sp"
+            android:textColor="@color/darkGreen"
+            tools:text="Net Kazancınız: 10.700,58"/>
     </LinearLayout>
 </layout>

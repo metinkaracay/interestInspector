@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun navigateToDestination(navController: NavController, navigationData: NavigationData) {
+    private fun navigateToDestination(navController: NavController, navigationData: NavigationData) {
         navController.navigate(navigationData.destinationId)
     }
 }
