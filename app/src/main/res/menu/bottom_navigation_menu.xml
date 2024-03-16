@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/summaryFragment"
+        android:id="@+id/walletFragment"
         android:icon="@drawable/summary_icon"
-        android:title="Summary"
+        android:title="Wallet"
         app:showAsAction="ifRoom"/>
 
     <item

@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.summaryFragment -> {
-                    navController.navigate(R.id.secondFragment)
+                R.id.walletFragment -> {
+                    navController.navigate(R.id.walletFragment)
                     true
                 }
                 R.id.panelFragment -> {

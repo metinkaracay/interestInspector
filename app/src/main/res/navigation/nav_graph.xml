@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/secondFragment">
+    app:startDestination="@id/walletFragment">
 
     <fragment
         android:id="@+id/firstFragment"
@@ -21,4 +21,8 @@
         android:name="com.example.interestinspector.panel.PanelFragment"
         android:label="PanelFragment"
         tools:layout="@layout/fragment_panel"/>
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="com.example.interestinspector.wallet.WalletFragment"
+        android:label="WalletFragment" />
 </navigation>
